@@ -1,5 +1,5 @@
 #define LGFX_USE_V1
-#include "Arduino.h"
+#include <Arduino.h>
 #include <lvgl.h>
 #include "demos/lv_demos.h"
 #include <LovyanGFX.hpp>
