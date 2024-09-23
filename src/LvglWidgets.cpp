@@ -27,14 +27,14 @@ public:
       auto cfg = _bus_instance.config();
 
       cfg.spi_host = SPI2_HOST;
-      
+
       cfg.spi_mode = 0;
       cfg.freq_write = 80000000;
       cfg.freq_read = 20000000;
       cfg.spi_3wire = true;
       cfg.use_lock = true;
       cfg.dma_channel = SPI_DMA_CH_AUTO;
-      
+
       cfg.pin_sclk = 6;
       cfg.pin_mosi = 7;
       cfg.pin_miso = -1;
@@ -125,9 +125,14 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
   {
     data->state = LV_INDEV_STATE_PR;
 
-    /*Set the coordinates*/
+/*Set the coordinates*/
+#ifdef INVERT_DISPLAY
+    data->point.x = 240 - touchX;
+    data->point.y = 240 - touchY;
+#else
     data->point.x = touchX;
     data->point.y = touchY;
+#endif
   }
 }
 
@@ -142,14 +147,17 @@ void setup()
 {
   pinMode(3, OUTPUT);
   digitalWrite(3, HIGH);
-  Serial.begin(115200); /* prepare for possible serial debug */
-  Serial.println("I am LVGL_Arduino");
+  // Serial.begin(115200); /* prepare for possible serial debug */
+  // Serial.println("I am LVGL_Arduino");
 
   ticker.attach(1, tcr1s);
   tft.init();
   tft.initDMA();
+#ifdef INVERT_DISPLAY
+  tft.setRotation(2);
+#endif
   tft.startWrite();
- 
+
   touch.begin();
   lv_init();
 
