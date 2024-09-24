@@ -136,21 +136,14 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
   }
 }
 
-Ticker ticker;
-
-void tcr1s()
-{
-  Serial.printf("SRAM free size: %d\n", heap_caps_get_free_size(MALLOC_CAP_INTERNAL));
-}
-
 void setup()
 {
   pinMode(3, OUTPUT);
-  digitalWrite(3, HIGH);
-  // Serial.begin(115200); /* prepare for possible serial debug */
-  // Serial.println("I am LVGL_Arduino");
+  // set brightness to 50
+  analogWrite(3, 50);
+  Serial.begin(115200); /* prepare for possible serial debug */
+  Serial.println("I am LVGL_Arduino");
 
-  ticker.attach(1, tcr1s);
   tft.init();
   tft.initDMA();
 #ifdef INVERT_DISPLAY
