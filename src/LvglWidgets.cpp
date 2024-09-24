@@ -1,11 +1,11 @@
 #define LGFX_USE_V1
 #include <Arduino.h>
 #include <lvgl.h>
-#include "demos/lv_demos.h"
 #include <LovyanGFX.hpp>
 #include <Ticker.h>
 #include "drivers/CST816D.h"
 #include "drivers/LGFX_GC9A01.h"
+#include "widgets/lv_demo_widgets.h"
 
 #define LCD_HEIGHT 240
 #define LCD_WIDTH 240
