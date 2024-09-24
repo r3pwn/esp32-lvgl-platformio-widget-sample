@@ -4,7 +4,7 @@
 #include "demos/lv_demos.h"
 #include <LovyanGFX.hpp>
 #include <Ticker.h>
-#include "CST816D.h"
+#include "drivers/CST816D.h"
 
 #define I2C_SDA 4
 #define I2C_SCL 5
