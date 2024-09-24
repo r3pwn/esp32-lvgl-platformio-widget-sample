@@ -24,9 +24,9 @@ void CST816D::begin(void)
   if (_int != -1)
   {
     pinMode(_int, OUTPUT);
-    digitalWrite(_int, HIGH); //高电平
+    digitalWrite(_int, HIGH);
     delay(1);
-    digitalWrite(_int, LOW); //低电平
+    digitalWrite(_int, LOW);
     delay(1);
   }
 
@@ -41,7 +41,7 @@ void CST816D::begin(void)
   }
 
   // Initialize Touch
-  i2c_write(0xFE, 0XFF); //禁止自动进入低功耗模式。
+  i2c_write(0xFE, 0XFF); // Disable automatic entry into low power mode.
 }
 
 bool CST816D::getTouch(uint16_t *x, uint16_t *y, uint8_t *gesture)
@@ -60,7 +60,7 @@ bool CST816D::getTouch(uint16_t *x, uint16_t *y, uint8_t *gesture)
   *x = ((data[0] & 0x0f) << 8) | data[1];
   *y = ((data[2] & 0x0f) << 8) | data[3];
 
-  //Flip X , if you x-axis is reversed,please uncomment the following code
+  // Flip X , if you x-axis is reversed,please uncomment the following code
   //*x=240-*x;
 
   return FingerIndex;
@@ -88,9 +88,11 @@ uint8_t CST816D::i2c_read_continuous(uint8_t addr, uint8_t *data, uint32_t lengt
 {
   Wire.beginTransmission(I2C_ADDR_CST816D);
   Wire.write(addr);
-  if ( Wire.endTransmission(true))return -1;
+  if (Wire.endTransmission(true))
+    return -1;
   Wire.requestFrom(I2C_ADDR_CST816D, length);
-  for (int i = 0; i < length; i++) {
+  for (int i = 0; i < length; i++)
+  {
     *data++ = Wire.read();
   }
   return 0;
@@ -108,9 +110,13 @@ uint8_t CST816D::i2c_write_continuous(uint8_t addr, const uint8_t *data, uint32_
 {
   Wire.beginTransmission(I2C_ADDR_CST816D);
   Wire.write(addr);
-  for (int i = 0; i < length; i++) {
+  for (int i = 0; i < length; i++)
+  {
     Wire.write(*data++);
   }
-  if ( Wire.endTransmission(true))return -1;
+  if (Wire.endTransmission(true))
+  {
+    return -1;
+  }
   return 0;
 }

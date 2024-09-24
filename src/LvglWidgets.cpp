@@ -9,6 +9,7 @@
 
 #define LCD_HEIGHT 240
 #define LCD_WIDTH 240
+
 #define I2C_SDA 4
 #define I2C_SCL 5
 #define TP_INT 0
@@ -21,7 +22,6 @@
 LGFX_GC9A01 tft;
 CST816D touch(I2C_SDA, I2C_SCL, TP_RST, TP_INT);
 
-/*更改为您的屏幕分辨率*/
 static const uint32_t screenWidth = LCD_WIDTH;
 static const uint32_t screenHeight = LCD_HEIGHT;
 
@@ -68,7 +68,6 @@ void lv_input_read_cb(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
   {
     data->state = LV_INDEV_STATE_PR;
 
-/*Set the coordinates*/
 #ifdef INVERT_DISPLAY
     data->point.x = screenWidth - touchX;
     data->point.y = screenHeight - touchY;
