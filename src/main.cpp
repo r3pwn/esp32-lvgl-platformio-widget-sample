@@ -27,7 +27,7 @@ void setup()
   ESP32_2424S012::init();
 #endif
 
-  create_root_view();
+  Root_Fragment::create_fragment();
 }
 
 void loop()

@@ -2,13 +2,17 @@
 
 static lv_style_t style_root;
 
-void create_time_fragment(lv_obj_t *parent)
+void Time_Fragment::create_fragment(lv_obj_t *parent)
 {
-  lv_obj_set_flex_flow(parent, LV_FLEX_ALIGN_CENTER);
+  lv_obj_set_flex_flow(parent, LV_FLEX_FLOW_ROW);
 
   lv_style_init(&style_root);
   lv_style_set_radius(&style_root, LV_RADIUS_CIRCLE);
   lv_style_set_bg_opa(&style_root, (lv_opa_t)0);
+  lv_style_set_outline_color(&style_root, lv_color_lighten(lv_color_black(), (lv_opa_t)60));
+  lv_style_set_outline_pad(&style_root, (lv_coord_t)10);
+  lv_style_set_outline_width(&style_root, (lv_coord_t)4);
+  lv_style_set_border_width(&style_root, (lv_coord_t)0);
 
   lv_obj_t *fragment_root = lv_obj_create(parent);
   lv_obj_set_width(fragment_root, lv_pct(100));

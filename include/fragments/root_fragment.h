@@ -1,15 +1,12 @@
 #ifndef ROOT_VIEW_H
 #define ROOT_VIEW_H
 
-#ifdef __cplusplus
-extern "C"
+#include "fragment_base.h"
+
+class Root_Fragment : Fragment_Base
 {
-#endif
-
-  void create_root_view(void);
-
-#ifdef __cplusplus
-} /* extern "C" */
-#endif
+public:
+  static void create_fragment();
+};
 
 #endif /*ROOT_VIEW_H*/

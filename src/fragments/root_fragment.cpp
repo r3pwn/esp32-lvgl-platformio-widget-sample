@@ -1,4 +1,5 @@
 #include <fragments/fragment_base.h>
+#include <fragments/root_fragment.h>
 #include <fragments/time_fragment.h>
 #include <fragments/button_counter_fragment.h>
 
@@ -10,7 +11,7 @@ static lv_style_t style_title;
 static const lv_font_t *font_large;
 static const lv_font_t *font_normal;
 
-void create_root_view(void)
+void Root_Fragment::create_fragment()
 {
   if (LV_HOR_RES <= 320)
     disp_size = DISP_SMALL;
@@ -38,6 +39,6 @@ void create_root_view(void)
   lv_obj_t *t1 = lv_tabview_add_tab(tv, "Time");
   lv_obj_t *t2 = lv_tabview_add_tab(tv, "Button");
 
-  create_time_fragment(t1);
-  create_button_counter_fragment(t2);
+  Time_Fragment::create_fragment(t1);
+  Button_Counter_Fragment::create_fragment(t2);
 }
