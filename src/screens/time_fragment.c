@@ -8,6 +8,7 @@ void create_time_fragment(lv_obj_t *parent)
 
   lv_style_init(&style_root);
   lv_style_set_radius(&style_root, LV_RADIUS_CIRCLE);
+  lv_style_set_bg_opa(&style_root, (lv_opa_t)0);
 
   lv_obj_t *fragment_root = lv_obj_create(parent);
   lv_obj_set_width(fragment_root, lv_pct(100));
