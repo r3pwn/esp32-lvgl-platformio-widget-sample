@@ -5,7 +5,7 @@
 #include <Ticker.h>
 #include "drivers/CST816D.h"
 #include "drivers/LGFX_GC9A01.h"
-#include "widgets/lv_demo_widgets.h"
+#include "root_view.h"
 
 #define LCD_HEIGHT 240
 #define LCD_WIDTH 240
@@ -116,7 +116,7 @@ void setup()
   indev_drv.read_cb = lv_input_read_cb;
   lv_indev_drv_register(&indev_drv);
 
-  lv_demo_widgets();
+  create_root_view();
   Serial.println("Setup done");
 }
 
