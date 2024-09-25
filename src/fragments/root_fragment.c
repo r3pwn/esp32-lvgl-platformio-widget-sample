@@ -1,6 +1,6 @@
-#include "screens/screen_base.h"
-#include "screens/time_fragment.h"
-#include "screens/button_counter_fragment.h"
+#include <fragments/fragment_base.h>
+#include <fragments/time_fragment.h>
+#include <fragments/button_counter_fragment.h>
 
 static disp_size_t disp_size;
 

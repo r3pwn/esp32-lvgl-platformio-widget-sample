@@ -1,7 +1,7 @@
 #define LGFX_USE_V1
 #include <Arduino.h>
 #include <lvgl.h>
-#include "root_view.h"
+#include <fragments/root_fragment.h>
 #include <boards/esp32-2424s012.h>
 
 #if LV_USE_LOG != 0

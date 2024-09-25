@@ -1,4 +1,4 @@
-#include "screens/time_fragment.h"
+#include <fragments/time_fragment.h>
 
 static lv_style_t style_root;
 
