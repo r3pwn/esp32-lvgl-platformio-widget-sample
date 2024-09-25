@@ -1,10 +1,10 @@
 #ifndef _BOARD_COMMON_H
 #define _BOARD_COMMON_H
 
-class CommonBoard
+struct Common_Board
 {
 public:
-  virtual void init();
+  static void init();
 };
 
 #endif

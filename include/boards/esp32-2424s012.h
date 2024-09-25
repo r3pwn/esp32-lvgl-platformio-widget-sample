@@ -3,10 +3,10 @@
 
 #include "board-common.h"
 
-class ESP32_2424S012 : CommonBoard
+struct ESP32_2424S012 : Common_Board
 {
 public:
-  void init();
+  static void init();
 };
 
 #endif

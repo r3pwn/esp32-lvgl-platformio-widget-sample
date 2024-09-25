@@ -24,7 +24,7 @@ void setup()
 #endif
 
 #ifdef BOARD_ESP32_2424S012
-  ESP32_2424S012().init();
+  ESP32_2424S012::init();
 #endif
 
   create_root_view();
