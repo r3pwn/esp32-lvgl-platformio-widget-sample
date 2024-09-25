@@ -1,7 +1,6 @@
 #define LGFX_USE_V1
 #include <Arduino.h>
 #include <lvgl.h>
-#include <LovyanGFX.hpp>
 #include <Ticker.h>
 #include "drivers/CST816D.h"
 #include "drivers/LGFX_GC9A01.h"
